@@ -1,7 +1,6 @@
 import { defineConfig, ts } from '@rslint/core';
 
 export default defineConfig([
-  { ignores: ['**/dist/**', '**/dist-types/**', '**/compiled/**'] },
   ts.configs.recommended,
   {
     languageOptions: {
@@ -11,6 +10,8 @@ export default defineConfig([
     },
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
+      // TODO: Rslint bug
+      'prefer-const': 'off',
     },
   },
 ]);

@@ -35,8 +35,8 @@ O Rsbuild tem os seguintes recursos:
 
 ## 📚 Documentação
 
-- [Rsbuild v2 docs](https://v2.rsbuild.rs)
-- [Rsbuild v1 docs](https://rsbuild.rs/)
+- [Documentação do Rsbuild v2](https://rsbuild.rs/)
+- [Documentação do Rsbuild v1](https://v1.rsbuild.rs/)
 
 ## 🦀 Rstack
 

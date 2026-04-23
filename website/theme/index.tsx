@@ -1,5 +1,11 @@
-import { Layout as BaseLayout } from '@rspress/core/theme-original';
+import {
+  Layout as BaseLayout,
+  DocLayout as BasicDocLayout,
+  Link,
+  type DocLayoutProps,
+} from '@rspress/core/theme-original';
 import { Announcement } from '@rstack-dev/doc-ui/announcement';
+import { BlogBackButton } from '@rstack-dev/doc-ui/blog-back-button';
 import { NavIcon } from '@rstack-dev/doc-ui/nav-icon';
 import { HomeLayout } from './pages';
 import './index.scss';
@@ -11,6 +17,27 @@ import {
 
 // Enable announcement when we have something to announce
 const ANNOUNCEMENT_URL = '/blog/v2-0';
+
+const DocLayout = (props: DocLayoutProps) => {
+  const { page } = usePage();
+  const lang = useLang();
+
+  return (
+    <BasicDocLayout
+      {...props}
+      beforeDocContent={
+        <>
+          <BlogBackButton
+            pathname={page.routePath}
+            lang={lang}
+            LinkComp={Link}
+          />
+          {props.beforeDocContent}
+        </>
+      }
+    />
+  );
+};
 
 const Layout = () => {
   const { page } = usePage();
@@ -57,6 +84,6 @@ const Search = () => {
   );
 };
 
-export { Layout, HomeLayout, Search };
+export { DocLayout, Layout, HomeLayout, Search };
 
 export * from '@rspress/core/theme-original';
